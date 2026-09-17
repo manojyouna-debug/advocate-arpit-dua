@@ -48,14 +48,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMatter = 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-[#d4af37] block mb-2">
-            Chambers &amp; Appointments
+            Office &amp; Appointments
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
             Contact &amp; Consultation
           </h2>
           <div className="w-16 h-1 bg-[#c5a059] mx-auto mt-4 mb-6" />
           <p className="text-sm sm:text-base text-slate-300 font-sans font-light leading-relaxed">
-            Reach out to schedule an in-person chamber conference or telephone consultation regarding your legal matter.
+            Reach out to schedule an in-person office conference or telephone consultation regarding your legal matter.
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMatter = 
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div className="space-y-1.5 flex-1">
-                  <span className="text-xs text-slate-400 font-sans block">Chamber Address</span>
+                  <span className="text-xs text-slate-300 font-sans font-medium block">Office Address</span>
                   <p className="text-sm font-sans text-slate-200 leading-snug">
                     {ADVOCATE_CONFIG.officeAddress}
                   </p>
@@ -171,23 +171,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialMatter = 
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-400 font-sans block">Working Hours</span>
+                  <span className="text-xs text-slate-300 font-sans font-medium block">Working Hours</span>
                   <p className="text-sm font-sans font-medium text-slate-200">
                     {ADVOCATE_CONFIG.workingHours}
                   </p>
                   <span className="text-[11px] text-slate-400 font-sans">
-                    Appointments recommended for in-person chamber conferences
+                    Appointments recommended for in-person consultations
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Google Maps Chamber Location Embed */}
+            {/* Google Maps Office Location Embed */}
             <div className="rounded-2xl overflow-hidden border border-slate-800 bg-[#0b132b] shadow-xl">
               <div className="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
                 <span className="text-xs font-sans font-bold text-slate-200 flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[#c5a059]" />
-                  <span>Sector 43-B, Chandigarh Chamber</span>
+                  <span>Sector 43-B, Chandigarh Office</span>
                 </span>
                 <a
                   href="https://maps.google.com/?q=House+No.+1741/2,+Sector+43-B,+Chandigarh"
