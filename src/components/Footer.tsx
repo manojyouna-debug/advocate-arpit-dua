@@ -20,24 +20,24 @@ export const Footer: React.FC = () => {
               <GoldSealLogo size={52} showText={true} />
             </div>
             
-            <p className="text-xs text-slate-400 font-sans leading-relaxed pt-2">
-              Litigation counsel practising before the <strong className="text-slate-200">Punjab &amp; Haryana High Court</strong> and District Courts across <strong className="text-slate-200">Chandigarh, Mohali, Panchkula, and Yamunanagar</strong>.
+            <p className="text-xs text-slate-300 font-sans leading-relaxed pt-2">
+              Litigation counsel practising before the <strong className="text-white">Punjab &amp; Haryana High Court</strong> and District Courts across <strong className="text-white">Chandigarh, Mohali, Panchkula, and Yamunanagar</strong>.
             </p>
 
-            <div className="space-y-2 text-xs text-slate-300 font-sans pt-2">
+            <div className="space-y-2 text-xs text-white font-sans pt-2">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#c5a059] shrink-0 mt-0.5" />
-                <span>{ADVOCATE_CONFIG.officeAddress}</span>
+                <span className="text-slate-200">{ADVOCATE_CONFIG.officeAddress}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#c5a059] shrink-0" />
-                <a href={ADVOCATE_CONFIG.telUrl} className="hover:text-[#d4af37] transition-colors">
+                <a href={ADVOCATE_CONFIG.telUrl} className="text-white hover:text-[#b47a34] transition-colors">
                   {ADVOCATE_CONFIG.phoneDisplay}
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#c5a059] shrink-0" />
-                <a href={ADVOCATE_CONFIG.emailUrl} className="hover:text-[#d4af37] transition-colors break-all">
+                <a href={ADVOCATE_CONFIG.emailUrl} className="text-white hover:text-[#b47a34] transition-colors break-all">
                   {ADVOCATE_CONFIG.email}
                 </a>
               </div>
@@ -94,12 +94,12 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
               Practice Forums
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400 font-sans">
+            <ul className="space-y-2 text-xs text-white font-sans">
               {PRACTICE_AREAS.map((area) => (
                 <li key={area.id}>
                   <a
                     href="#practice-areas"
-                    className="hover:text-[#d4af37] transition-colors flex items-center gap-1.5"
+                    className="text-white hover:text-[#b47a34] transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-[#c5a059]">›</span>
                     <span>{area.title}</span>
@@ -114,15 +114,15 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
               Quick Links
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400 font-sans">
-              <li><a href="#about" className="hover:text-[#d4af37] transition-colors">About Counsel</a></li>
-              <li><a href="#practice-areas" className="hover:text-[#d4af37] transition-colors">Practice Areas</a></li>
-              <li><a href="#how-we-help" className="hover:text-[#d4af37] transition-colors">How We Help</a></li>
-              <li><a href="#approach" className="hover:text-[#d4af37] transition-colors">Our Approach</a></li>
-              <li><a href="#high-court" className="hover:text-[#d4af37] transition-colors">High Court Practice</a></li>
-              <li><a href="#articles" className="hover:text-[#d4af37] transition-colors">Legal Articles</a></li>
-              <li><a href="#faqs" className="hover:text-[#d4af37] transition-colors">FAQs</a></li>
-              <li><a href="#contact" className="hover:text-[#d4af37] transition-colors">Contact Chambers</a></li>
+            <ul className="space-y-2 text-xs text-white font-sans">
+              <li><a href="#about" className="text-white hover:text-[#b47a34] transition-colors">About Counsel</a></li>
+              <li><a href="#practice-areas" className="text-white hover:text-[#b47a34] transition-colors">Practice Areas</a></li>
+              <li><a href="#how-we-help" className="text-white hover:text-[#b47a34] transition-colors">How We Help</a></li>
+              <li><a href="#approach" className="text-white hover:text-[#b47a34] transition-colors">Our Approach</a></li>
+              <li><a href="#high-court" className="text-white hover:text-[#b47a34] transition-colors">High Court Practice</a></li>
+              <li><a href="#articles" className="text-white hover:text-[#b47a34] transition-colors">Legal Articles</a></li>
+              <li><a href="#faqs" className="text-white hover:text-[#b47a34] transition-colors">FAQs</a></li>
+              <li><a href="#contact" className="text-white hover:text-[#b47a34] transition-colors">Contact Chambers</a></li>
             </ul>
           </div>
 
@@ -131,13 +131,13 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif text-base font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
               Court Jurisdictions
             </h4>
-            <div className="space-y-2 text-xs text-slate-400 font-sans">
-              <p><strong className="text-slate-200">High Court:</strong> Hon&apos;ble Punjab &amp; Haryana High Court, Chandigarh</p>
-              <p><strong className="text-slate-200">Chandigarh:</strong> District &amp; Sessions Courts, Sector 43</p>
-              <p><strong className="text-slate-200">Mohali:</strong> District Courts Complex, SAS Nagar</p>
-              <p><strong className="text-slate-200">Panchkula:</strong> District Courts, Sector 1</p>
-              <p><strong className="text-slate-200">Yamunanagar:</strong> District Courts, Jagadhri</p>
-              <p className="pt-2 text-[11px] text-[#c5a059] font-medium">Availability: 24 × 7 Legal Inquiries</p>
+            <div className="space-y-2 text-xs text-slate-200 font-sans">
+              <p><strong className="text-white">High Court:</strong> Hon&apos;ble Punjab &amp; Haryana High Court, Chandigarh</p>
+              <p><strong className="text-white">Chandigarh:</strong> District &amp; Sessions Courts, Sector 43</p>
+              <p><strong className="text-white">Mohali:</strong> District Courts Complex, SAS Nagar</p>
+              <p><strong className="text-white">Panchkula:</strong> District Courts, Sector 1</p>
+              <p><strong className="text-white">Yamunanagar:</strong> District Courts, Jagadhri</p>
+              <p className="pt-2 text-[11px] text-[#c5a059] font-semibold">Availability: 24 × 7 Legal Inquiries</p>
             </div>
           </div>
 
