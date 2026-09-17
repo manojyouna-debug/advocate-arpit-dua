@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <script>
+      (function() {
+        try {
+          var win = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null);
+          if (!win) return;
+          var _fetch = typeof win.fetch === 'function' ? win.fetch.bind(win) : null;
+          var getF = function() { return _fetch; };
+          var setF = function(fn) { _fetch = fn; };
+
+          var curr = win;
+          while (curr) {
+            try {
+              var desc = Object.getOwnPropertyDescriptor(curr, 'fetch');
+              if (desc) {
+                Object.defineProperty(curr, 'fetch', {
+                  get: getF,
+                  set: setF,
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+            try {
+              curr = Object.getPrototypeOf(curr);
+            } catch (e) {
+              break;
+            }
+          }
+
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', {
+                get: getF,
+                set: setF,
+                configurable: true,
+                enumerable: true
+              });
+            } catch (e) {}
+          }
+
+          try {
+            Object.defineProperty(win, 'fetch', {
+              get: getF,
+              set: setF,
+              configurable: true,
+              enumerable: true
+            });
+          } catch (e) {}
+        } catch (err) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advocate in Chandigarh High Court | Advocate Arpit Dua</title>
+    <meta name="description" content="Advocate Arpit Dua is a Chandigarh-based litigation counsel practising before the Punjab &amp; Haryana High Court and District Courts across Chandigarh, Mohali, Panchkula and Yamunanagar. Contact: 8059288086." />
+    <meta name="keywords" content="Advocate in Chandigarh High Court, Advocate Arpit Dua, High Court Advocate Chandigarh, Punjab and Haryana High Court, Litigation Counsel Chandigarh, Bail Lawyer Chandigarh, Criminal Appeal Chandigarh, Advocate Mohali, Advocate Panchkula, Advocate Yamunanagar" />
+    <meta name="author" content="Advocate Arpit Dua" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://advocatearpitdua.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://advocatearpitdua.com" />
+    <meta property="og:title" content="Advocate in Chandigarh High Court | Advocate Arpit Dua" />
+    <meta property="og:description" content="Driven by Law. Guided by Purpose. Committed to Justice. Litigation counsel before Punjab &amp; Haryana High Court and District Courts." />
+    <meta property="og:image" content="/assets/advocate-og.jpg" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Advocate in Chandigarh High Court | Advocate Arpit Dua" />
+    <meta name="twitter:description" content="Litigation counsel practising before the Punjab &amp; Haryana High Court and District Courts across Chandigarh Tricity and Yamunanagar." />
+
+    <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data: LegalService & Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LegalService",
+          "@id": "https://advocatearpitdua.com/#legalService",
+          "name": "Advocate Arpit Dua - Litigation Counsel",
+          "alternateName": "Advocate Arpit Dua",
+          "description": "Litigation counsel practising before the Punjab & Haryana High Court and District Courts across Chandigarh, Mohali, Panchkula, and Yamunanagar.",
+          "telephone": "+91-8059288086",
+          "email": "advocatearpitdua@gmail.com",
+          "url": "https://advocatearpitdua.com",
+          "image": "https://advocatearpitdua.com/assets/images/advocate_arpit_dua.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "House No. 1741/2, Sector 43-B",
+            "addressLocality": "Chandigarh",
+            "addressRegion": "Chandigarh",
+            "postalCode": "160043",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.7258",
+            "longitude": "76.7553"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Chandigarh" },
+            { "@type": "City", "name": "Mohali" },
+            { "@type": "City", "name": "Panchkula" },
+            { "@type": "City", "name": "Yamunanagar" }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/advarpitdua?stkn=MWF2eG5kdWVqcWxxZA==",
+            "https://www.facebook.com/share/1HCewHvs7L/",
+            "https://www.linkedin.com/in/adv-arpit-dua0a6425187",
+            "https://youtube.com/@advarpitdua"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal Litigation Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "High Court Litigation",
+                  "description": "Litigation representation and advisory before the Punjab & Haryana High Court."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Appellate Work",
+                  "description": "Appellate proceedings challenging trial court convictions, sentences, and civil decrees."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Bail Matters",
+                  "description": "Legal assistance and court representation for Regular Bail and Anticipatory Bail."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Criminal Proceedings",
+                  "description": "Defence representation and advisory in criminal litigation proceedings."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Civil Proceedings",
+                  "description": "Representation in civil litigation, injunctions, suits, and trial proceedings."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://advocatearpitdua.com/#person",
+          "name": "Arpit Dua",
+          "jobTitle": "Advocate & Litigation Counsel",
+          "worksFor": {
+            "@id": "https://advocatearpitdua.com/#legalService"
+          },
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Kurukshetra University",
+              "award": "Bachelor of Business Administration (BBA, 2017)"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Punjabi University, Patiala",
+              "award": "Bachelor of Laws (LL.B., 2022)"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://advocatearpitdua.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is Advocate Arpit Dua?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Advocate Arpit Dua is a Chandigarh-based litigation counsel practising before the Punjab & Haryana High Court and District Courts across Chandigarh, Mohali, Panchkula and Yamunanagar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which court does Advocate Arpit Dua practise before?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Advocate Arpit Dua practises primarily before the Punjab & Haryana High Court and District Courts across Chandigarh, Mohali, Panchkula, and Yamunanagar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is Advocate Arpit Dua's office located?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The office of Advocate Arpit Dua is located at House No. 1741/2, Sector 43-B, Chandigarh."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which areas does Advocate Arpit Dua serve?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Advocate Arpit Dua serves clients across Chandigarh, Mohali, Panchkula, and Yamunanagar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Advocate Arpit Dua handle High Court matters?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Advocate Arpit Dua has a strong professional inclination and focus on High Court litigation, appellate work, and diverse court proceedings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between regular bail and anticipatory bail?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anticipatory bail is pre-arrest protection sought by a person who apprehends arrest, whereas regular bail is applied for after an individual has been taken into custody to seek release subject to judicial conditions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I contact Advocate Arpit Dua?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can call or WhatsApp Advocate Arpit Dua directly at 8059288086 or email at advocatearpitdua@gmail.com."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#fcfaf7] text-slate-900 antialiased selection:bg-[#c5a059]/20 selection:text-slate-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
