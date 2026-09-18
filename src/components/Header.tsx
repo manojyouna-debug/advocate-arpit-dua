@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageSquare, Menu, X, Scale } from 'lucide-react';
+import { Phone, MessageSquare, Menu, X, Scale, ChevronDown } from 'lucide-react';
 import { ADVOCATE_CONFIG } from '../data/advocateData';
 import { GoldSealLogo } from './GoldSealLogo';
 import { ThemeSwitcher } from './ThemeSwitcher';
@@ -11,6 +11,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // All navigation links for full mobile drawer
   const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Practice Areas', href: '#practice-areas' },
@@ -30,6 +32,23 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
     { label: 'Articles', href: '#articles' },
     { label: 'FAQs', href: '#faqs' },
     { label: 'Contact', href: '#contact' },
+  ];
+
+  // Core high-priority links displayed directly on desktop navbar
+  const primaryNavLinks = [
+    { label: 'About', href: '#about' },
+    { label: 'Practice Areas', href: '#practice-areas' },
+    { label: 'High Court', href: '#high-court' },
+    { label: 'Articles', href: '#articles' },
+    { label: 'FAQs', href: '#faqs' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  // Secondary links housed neatly in a dropdown to prevent crowding
+  const moreNavLinks = [
+    { label: 'How We Help', href: '#how-we-help', desc: 'Urgent checklists & situational guides' },
+    { label: 'Our Approach', href: '#approach', desc: '5-step litigation strategy & process' },
+    { label: 'Testimonials', href: '#testimonials', desc: 'Client trust & verified feedback' },
   ];
 
   return (
@@ -73,38 +92,83 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             : 'bg-[#0b132b]/90 backdrop-blur-sm border-b border-slate-800/60 py-3.5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
-          {/* Logo & Identity */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-3 xl:gap-6">
+          {/* Logo & Identity - Guaranteed shrink-0 with dedicated right clearance */}
           <a
             href="#"
-            className="group flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-[#c5a059] rounded-lg p-1 min-w-0 shrink"
+            className="group flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-[#c5a059] rounded-lg p-1 shrink-0 mr-2 xl:mr-6"
             aria-label="Advocate Arpit Dua Home"
           >
             <GoldSealLogo size={42} showText={true} />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 shrink-0">
-            {navLinks.map((link) => (
+          {/* Desktop Navigation Links with Zero Overlap */}
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-1.5 shrink-0">
+            {primaryNavLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3 py-2 text-sm font-sans font-medium text-white hover:text-[#b47a34] transition-colors rounded-md hover:bg-white/5"
+                className="px-2.5 xl:px-3 py-2 text-xs xl:text-sm font-sans font-medium text-slate-200 hover:text-[#d4af37] transition-colors rounded-md hover:bg-white/5 whitespace-nowrap shrink-0"
               >
                 {link.label}
               </a>
             ))}
+
+            {/* More Dropdown for Secondary Links */}
+            <div
+              className="relative"
+              onMouseEnter={() => setMoreDropdownOpen(true)}
+              onMouseLeave={() => setMoreDropdownOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
+                className="inline-flex items-center gap-1 px-2.5 xl:px-3 py-2 text-xs xl:text-sm font-sans font-medium text-slate-200 hover:text-[#d4af37] transition-colors rounded-md hover:bg-white/5 whitespace-nowrap focus:outline-none cursor-pointer"
+                aria-expanded={moreDropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>More</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${moreDropdownOpen ? 'rotate-180 text-[#d4af37]' : ''}`} />
+              </button>
+
+              {moreDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-64 py-2 rounded-xl bg-[#0b132b] border border-[#c5a059]/40 shadow-2xl backdrop-blur-md z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  {moreNavLinks.map((subLink) => (
+                    <a
+                      key={subLink.label}
+                      href={subLink.href}
+                      onClick={() => setMoreDropdownOpen(false)}
+                      className="block px-4 py-2.5 hover:bg-[#c5a059]/15 transition-colors group"
+                    >
+                      <div className="text-xs font-semibold text-slate-100 group-hover:text-[#e2c882]">
+                        {subLink.label}
+                      </div>
+                      {subLink.desc && (
+                        <div className="text-[10px] text-slate-400 group-hover:text-slate-300 mt-0.5">
+                          {subLink.desc}
+                        </div>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Desktop & Tablet Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2 lg:gap-3 shrink-0">
-            <ThemeSwitcher variant="compact" />
+          <div className="hidden sm:flex items-center gap-2 lg:gap-3 shrink-0 ml-2">
+            <div className="hidden xl:block">
+              <ThemeSwitcher variant="compact" />
+            </div>
+            <div className="hidden lg:block xl:hidden">
+              <ThemeSwitcher variant="icon-only" />
+            </div>
 
             <a
               href={ADVOCATE_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/10 text-xs font-semibold tracking-wide transition-all"
+              className="hidden xl:inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366]/10 text-xs font-semibold tracking-wide transition-all shrink-0"
               title="Chat on WhatsApp"
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -114,7 +178,7 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             <button
               onClick={onConsultClick}
               id="header-consult-btn"
-              className="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-[#d4af37] hover:bg-[#e2c882] text-[#070c1b] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-[0_0_20px_rgba(212,175,55,0.45)] border border-[#ffe082]/60 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-offset-2 focus:ring-offset-[#0b132b]"
+              className="inline-flex items-center justify-center px-3.5 sm:px-4 xl:px-5 py-2 sm:py-2.5 rounded-lg bg-[#d4af37] hover:bg-[#e2c882] text-[#070c1b] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-[0_0_20px_rgba(212,175,55,0.45)] border border-[#ffe082]/60 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer whitespace-nowrap shrink-0 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
             >
               Consult Now
             </button>

@@ -12,7 +12,7 @@ export const GoldSealLogo: React.FC<GoldSealLogoProps> = ({
   showText = false
 }) => {
   return (
-    <div className={`inline-flex items-center gap-3 ${className}`}>
+    <div className={`inline-flex items-center gap-2.5 sm:gap-3 shrink-0 ${className}`}>
       <svg
         width={size}
         height={size}
@@ -112,11 +112,11 @@ export const GoldSealLogo: React.FC<GoldSealLogoProps> = ({
       </svg>
 
       {showText && (
-        <div className="flex flex-col text-left min-w-0">
-          <span className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-[#d4af37] transition-colors leading-tight whitespace-nowrap truncate">
+        <div className="flex flex-col text-left shrink-0">
+          <span className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-[#d4af37] transition-colors leading-tight whitespace-nowrap">
             Advocate Arpit Dua
           </span>
-          <span className="text-[9px] sm:text-[10px] md:text-[11px] font-sans font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] text-[#c5a059] leading-tight mt-0.5 whitespace-nowrap truncate">
+          <span className="text-[9px] sm:text-[10px] md:text-[11px] font-sans font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] text-[#c5a059] leading-tight mt-0.5 whitespace-nowrap">
             Punjab &amp; Haryana High Court
           </span>
         </div>
