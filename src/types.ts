@@ -59,3 +59,16 @@ export interface ConsultationFormData {
   preferredContact: 'phone' | 'whatsapp' | 'email';
   message: string;
 }
+
+export interface ClientTestimonial {
+  id: string;
+  clientIdentifier: string;
+  clientRole: string;
+  matterCategory: 'High Court' | 'Criminal & Bail' | 'Civil & Property' | 'Commercial & NI Act';
+  courtForum: string;
+  headline: string;
+  feedback: string;
+  keyHighlight: string;
+  year: string;
+  rating: number;
+}

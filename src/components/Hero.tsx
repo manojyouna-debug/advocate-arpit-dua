@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, MessageSquare, ArrowRight, ShieldCheck, Scale, Award, BookOpen, Camera, Upload } from 'lucide-react';
+import { Phone, MessageSquare, ArrowRight, ShieldCheck, Scale, Award, BookOpen, Camera, Upload, Calendar } from 'lucide-react';
 import { ADVOCATE_CONFIG, TRUST_STRIP_ITEMS } from '../data/advocateData';
 
 interface HeroProps {
   onConsultClick: () => void;
 }
 
+const ADVOCATE_IMAGE_URL = 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm05KyDuFyT6l09QWaivlw8Ix3HK1K0KueJEYNMR6HDuqeyphzcPwnWghQv-ZWMQcL9ViINJgK8_-5YrH9RmHwfNlm_ZidDp1LlEIxQY_TqkEYCi9Saw2_MG5-uCf1cjwWKs3W4=s680-w680-h510-rw';
+
 export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
   const [portraitSrc, setPortraitSrc] = useState<string>(() => {
-    return localStorage.getItem('advocate_custom_photo') || '/assets/advocate_arpit_real.jpg';
+    return localStorage.getItem('advocate_custom_photo') || ADVOCATE_IMAGE_URL;
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -86,14 +88,24 @@ export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <button
+                type="button"
+                onClick={onConsultClick}
+                id="hero-schedule-cta"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#e2c882] hover:from-[#e2c882] hover:to-[#ffe082] text-[#070c1b] font-sans font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Schedule Consultation</span>
+              </button>
+
               <a
                 href={ADVOCATE_CONFIG.telUrl}
                 id="hero-call-cta"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-[#c5a059] hover:bg-[#d4af37] text-[#070c1b] font-sans font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[#c5a059]/20 transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-[#c5a059]/40 text-white font-sans font-semibold text-xs uppercase tracking-wider transition-all"
               >
-                <Phone className="w-4 h-4 fill-current" />
-                <span>Call for Consultation: {ADVOCATE_CONFIG.phone}</span>
+                <Phone className="w-4 h-4 text-[#c5a059]" />
+                <span>Call: {ADVOCATE_CONFIG.phone}</span>
               </a>
 
               <a
@@ -101,19 +113,11 @@ export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-cta"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-[#25D366]/50 text-[#25D366] font-sans font-semibold text-xs uppercase tracking-wider transition-all"
+                className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-[#25D366]/50 text-[#25D366] font-sans font-semibold text-xs uppercase tracking-wider transition-all"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp Consultation</span>
+                <span>WhatsApp</span>
               </a>
-
-              <button
-                onClick={onConsultClick}
-                className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-[#d4af37] transition-colors py-2 px-1 cursor-pointer"
-              >
-                <span>Request Case Assessment</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
             </div>
 
             {/* Quick Badges / Verification Facts */}

@@ -19,42 +19,48 @@ import { ApproachSection } from './components/ApproachSection';
 import { HighCourtSection } from './components/HighCourtSection';
 import { BeyondTheBrief } from './components/BeyondTheBrief';
 import { ServiceAreas } from './components/ServiceAreas';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { ArticlesSection } from './components/ArticlesSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { MobileStickyBar } from './components/MobileStickyBar';
+import { ScheduleConsultationModal } from './components/ScheduleConsultationModal';
 import { PracticeArea } from './types';
+import { useTheme } from './context/ThemeContext';
 
 export default function App() {
+  const { isMidnight } = useTheme();
   const [selectedMatter, setSelectedMatter] = useState<string>('High Court Litigation');
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState<boolean>(false);
 
-  const scrollToContact = (matterType?: string) => {
+  const openConsultation = (matterType?: string) => {
     if (matterType) {
       setSelectedMatter(matterType);
     }
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsConsultModalOpen(true);
   };
 
   const handleSelectArea = (area: PracticeArea) => {
-    scrollToContact(area.title);
+    openConsultation(area.title);
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] text-slate-900 font-sans selection:bg-[#c5a059] selection:text-[#070c1b]">
+    <div
+      className={`min-h-screen font-sans selection:bg-[#c5a059] selection:text-[#070c1b] transition-colors duration-300 ${
+        isMidnight ? 'bg-[#070c1b] text-slate-100' : 'bg-[#fdfbf7] text-slate-900'
+      }`}
+    >
       {/* Top Header & Sticky Navigation */}
-      <Header onConsultClick={() => scrollToContact()} />
+      <Header onConsultClick={() => openConsultation()} />
 
       {/* Main Content Sections */}
       <main id="main-content">
         {/* Hero Section with H1, Trust Strip and Direct CTAs */}
-        <Hero onConsultClick={() => scrollToContact()} />
+        <Hero onConsultClick={() => openConsultation()} />
 
         {/* Section 10: Meet Advocate Arpit Dua (About, Timeline, Photo, Quote) */}
-        <AboutSection onConsultClick={() => scrollToContact()} />
+        <AboutSection onConsultClick={() => openConsultation()} />
 
         {/* Section 11: A First-Generation Lawyer. A Litigation-First Approach */}
         <FirstGenSection />
@@ -62,17 +68,17 @@ export default function App() {
         {/* Section 12: Areas of Legal Practice (6 verified litigation areas) */}
         <PracticeAreas
           onSelectArea={handleSelectArea}
-          onConsultClick={(title) => scrollToContact(title)}
+          onConsultClick={(title) => openConsultation(title)}
         />
 
         {/* Section 13: How Can We Help? (5 Situational Guides & Checklists) */}
-        <HowCanWeHelp onConsultClick={(cat) => scrollToContact(cat)} />
+        <HowCanWeHelp onConsultClick={(cat) => openConsultation(cat)} />
 
         {/* Section 14: The 5-Step Approach Process */}
         <ApproachSection />
 
         {/* Section 16: Dedicated High Court Section */}
-        <HighCourtSection onConsultClick={() => scrollToContact('High Court Litigation')} />
+        <HighCourtSection onConsultClick={() => openConsultation('High Court Litigation')} />
 
         {/* Section 15: Beyond the Brief (Access to Justice & Pro-bono) */}
         <BeyondTheBrief />
@@ -80,8 +86,11 @@ export default function App() {
         {/* Section 17: Areas Served (Chandigarh, Mohali, Panchkula, Yamunanagar) */}
         <ServiceAreas />
 
+        {/* Section 17.5: Client Testimonials (Anonymized Feedback & Credibility) */}
+        <TestimonialsSection onConsultClick={() => openConsultation()} />
+
         {/* Section 18: Legal Articles & Insights (Full Text Available) */}
-        <ArticlesSection onConsultClick={(topic) => scrollToContact(topic)} />
+        <ArticlesSection onConsultClick={(topic) => openConsultation(topic)} />
 
         {/* Section 19: Frequently Asked Questions (AEO & User Clarity) */}
         <FaqSection />
@@ -94,7 +103,14 @@ export default function App() {
       <Footer />
 
       {/* Section 22: Mobile Sticky Bottom Action Bar */}
-      <MobileStickyBar />
+      <MobileStickyBar onConsultClick={() => openConsultation()} />
+
+      {/* Schedule Consultation Popup Modal (Lead Generation) */}
+      <ScheduleConsultationModal
+        isOpen={isConsultModalOpen}
+        initialMatter={selectedMatter}
+        onClose={() => setIsConsultModalOpen(false)}
+      />
     </div>
   );
 }

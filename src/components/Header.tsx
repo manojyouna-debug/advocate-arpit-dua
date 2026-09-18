@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MessageSquare, Menu, X, Scale } from 'lucide-react';
 import { ADVOCATE_CONFIG } from '../data/advocateData';
 import { GoldSealLogo } from './GoldSealLogo';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface HeaderProps {
   onConsultClick: () => void;
@@ -25,6 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
     { label: 'How We Help', href: '#how-we-help' },
     { label: 'Our Approach', href: '#approach' },
     { label: 'High Court', href: '#high-court' },
+    { label: 'Testimonials', href: '#testimonials' },
     { label: 'Articles', href: '#articles' },
     { label: 'FAQs', href: '#faqs' },
     { label: 'Contact', href: '#contact' },
@@ -100,6 +102,11 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
 
           {/* Header Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop Theme Switcher */}
+            <div className="hidden sm:block">
+              <ThemeSwitcher variant="compact" />
+            </div>
+
             <a
               href={ADVOCATE_CONFIG.whatsappUrl}
               target="_blank"
@@ -120,8 +127,13 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             </button>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Action Controls */}
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+            {/* Mobile Icon Theme Switcher */}
+            <div className="sm:hidden">
+              <ThemeSwitcher variant="icon-only" />
+            </div>
+
             <a
               href={ADVOCATE_CONFIG.telUrl}
               className="p-2 rounded-lg bg-[#c5a059]/10 text-[#c5a059] border border-[#c5a059]/30"
@@ -159,6 +171,9 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             </div>
 
             <div className="pt-2 flex flex-col gap-2.5">
+              {/* Mobile Theme Toggle */}
+              <ThemeSwitcher variant="full" />
+
               <div className="text-xs text-slate-200 text-center font-medium">
                 Office: <span className="text-white font-semibold">Sector 43-B, Chandigarh</span> • High Court Litigation
               </div>

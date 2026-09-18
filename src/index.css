@@ -16,6 +16,35 @@
 html {
   font-family: var(--font-sans);
   color-scheme: light;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+:root {
+  --theme-bg-main: #fdfbf7;
+  --theme-bg-alt: #f8fafc;
+  --theme-card-bg: #ffffff;
+  --theme-card-border: rgba(226, 232, 240, 0.9);
+  --theme-text-heading: #0b132b;
+  --theme-text-body: #334155;
+  --theme-text-subtle: #64748b;
+  --theme-accent-gold: #c5a059;
+  --theme-accent-gold-dark: #b08a42;
+}
+
+html.dark, [data-theme="midnight"] {
+  --theme-bg-main: #070c1b;
+  --theme-bg-alt: #0b132b;
+  --theme-card-bg: #0e1838;
+  --theme-card-border: rgba(28, 37, 65, 0.9);
+  --theme-text-heading: #ffffff;
+  --theme-text-body: #cbd5e1;
+  --theme-text-subtle: #94a3b8;
+  --theme-accent-gold: #d4af37;
+  --theme-accent-gold-dark: #e2c882;
 }
 
 h1, h2, h3, .font-display {

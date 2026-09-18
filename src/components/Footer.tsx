@@ -120,6 +120,7 @@ export const Footer: React.FC = () => {
               <li><a href="#how-we-help" className="text-white hover:text-[#b47a34] transition-colors">How We Help</a></li>
               <li><a href="#approach" className="text-white hover:text-[#b47a34] transition-colors">Our Approach</a></li>
               <li><a href="#high-court" className="text-white hover:text-[#b47a34] transition-colors">High Court Practice</a></li>
+              <li><a href="#testimonials" className="text-white hover:text-[#b47a34] transition-colors">Client Testimonials</a></li>
               <li><a href="#articles" className="text-white hover:text-[#b47a34] transition-colors">Legal Articles</a></li>
               <li><a href="#faqs" className="text-white hover:text-[#b47a34] transition-colors">FAQs</a></li>
               <li><a href="#contact" className="text-white hover:text-[#b47a34] transition-colors">Contact Chambers</a></li>

@@ -1,4 +1,4 @@
-import { PracticeArea, ApproachStep, LegalArticle, FaqItem, HelpOption } from '../types';
+import { PracticeArea, ApproachStep, LegalArticle, FaqItem, HelpOption, ClientTestimonial } from '../types';
 
 export const ADVOCATE_CONFIG = {
   name: "Advocate Arpit Dua",
@@ -446,5 +446,80 @@ export const FAQS: FaqItem[] = [
     shortAnswer: "Yes, in appropriate cases where genuine financial hardship is a barrier to justice.",
     detailedAnswer: "Guided by the belief that access to justice should not become a privilege available only to those who can afford it, Advocate Arpit Dua extends pro-bono and need-based legal assistance in appropriate matters where genuine financial hardship is demonstrated.",
     category: "consultation"
+  }
+];
+
+export const CLIENT_TESTIMONIALS: ClientTestimonial[] = [
+  {
+    id: "testimonial-1",
+    clientIdentifier: "Client A.K.",
+    clientRole: "Industrialist & Partner, Mohali",
+    matterCategory: "High Court",
+    courtForum: "Punjab & Haryana High Court",
+    headline: "Calm, persuasive argument before the High Court Bench",
+    feedback: "When our family was confronted with an urgent, wrongful criminal complaint arising out of a contested commercial dissolution, Advocate Arpit Dua analyzed the lower court record overnight and approached the High Court. His court decorum, articulate factual briefing, and command of judicial precedents secured timely interim protection. He personally updates clients after every single court listing.",
+    keyHighlight: "High Court Bench Preparedness & Urgent Interim Relief",
+    year: "2024",
+    rating: 5
+  },
+  {
+    id: "testimonial-2",
+    clientIdentifier: "Client R.S. & Family",
+    clientRole: "NRI Property Owners, Chandigarh & UK",
+    matterCategory: "Civil & Property",
+    courtForum: "District Courts, Chandigarh",
+    headline: "Unmatched drafting clarity and constant digital communication",
+    feedback: "Managing ancestral property disputes from overseas is fraught with anxiety. Advocate Arpit Dua provided an honest, objective pre-litigation merit assessment without any false promises. His written pleadings were exhaustive, certified records were tracked systematically, and we received detailed WhatsApp updates after each date.",
+    keyHighlight: "Complete Procedural Transparency & NRI Coordination",
+    year: "2023",
+    rating: 5
+  },
+  {
+    id: "testimonial-3",
+    clientIdentifier: "Client M.G.",
+    clientRole: "Wholesale Distributor, Panchkula",
+    matterCategory: "Commercial & NI Act",
+    courtForum: "District Courts, Panchkula",
+    headline: "Straightforward fee clarity and aggressive cross-examination focus",
+    feedback: "In a series of complex Section 138 NI Act cheque recovery proceedings, Advocate Arpit Dua clearly laid out the legal strategy from day one. There were no hidden costs or ambiguous legal jargon. His cross-examination of complainant witnesses demonstrated thorough mastery of banking documentation and commercial law.",
+    keyHighlight: "Fee Transparency & Precise Cross-Examination",
+    year: "2024",
+    rating: 5
+  },
+  {
+    id: "testimonial-4",
+    clientIdentifier: "Client V.M.",
+    clientRole: "Senior IT Executive, Chandigarh",
+    matterCategory: "High Court",
+    courtForum: "Punjab & Haryana High Court",
+    headline: "Structured Section 482 petition and razor-sharp precedent research",
+    feedback: "Advocate Arpit Dua drafted our Criminal Miscellaneous Petition under Section 482 for quashing with remarkable precision. Every paragraph was backed by binding Apex Court citations. His professional composure in the courtroom and respect for client dignity made a high-stakes litigation experience manageable.",
+    keyHighlight: "High Court Quashing Submissions & Supreme Court Precedents",
+    year: "2024",
+    rating: 5
+  },
+  {
+    id: "testimonial-5",
+    clientIdentifier: "Client P.K.",
+    clientRole: "Private Client, Yamunanagar",
+    matterCategory: "Criminal & Bail",
+    courtForum: "Sessions Court, Yamunanagar",
+    headline: "Empathetic, mature counsel that prioritized sensible resolution",
+    feedback: "During an emotionally distressing family litigation involving contested allegations, Arpit gave grounded, mature legal advice. He focused on safeguarding long-term peace of mind, advocated assertively during court mediation, and prevented the matter from degenerating into endless retaliatory cases.",
+    keyHighlight: "Dignified Representation & Strategic Mediation",
+    year: "2023",
+    rating: 5
+  },
+  {
+    id: "testimonial-6",
+    clientIdentifier: "Client T.S.",
+    clientRole: "Managing Partner, Tricity Logistics Firm",
+    matterCategory: "Commercial & NI Act",
+    courtForum: "Tricity Commercial Courts",
+    headline: "Direct accessibility — you work directly with your courtroom advocate",
+    feedback: "Unlike large legacy firms where your brief is passed down to inexperienced associates, with Advocate Arpit Dua you speak directly with the counsel arguing your case. His agility, prompt document review, and practical commercial sense protected our business receivables efficiently.",
+    keyHighlight: "Direct Counsel Access & Commercial Contract Advocacy",
+    year: "2024",
+    rating: 5
   }
 ];

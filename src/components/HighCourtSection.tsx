@@ -6,7 +6,7 @@ interface HighCourtSectionProps {
   onConsultClick: () => void;
 }
 
-const DEFAULT_HIGHCOURT_PHOTO = '/assets/advocate-highcourt-official.jpg?v=3';
+const DEFAULT_HIGHCOURT_PHOTO = '/assets/advocate.png';
 
 export const HighCourtSection: React.FC<HighCourtSectionProps> = ({ onConsultClick }) => {
   const [photoSrc, setPhotoSrc] = useState<string>(DEFAULT_HIGHCOURT_PHOTO);
