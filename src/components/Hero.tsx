@@ -6,11 +6,13 @@ interface HeroProps {
   onConsultClick: () => void;
 }
 
-const ADVOCATE_IMAGE_URL = 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm05KyDuFyT6l09QWaivlw8Ix3HK1K0KueJEYNMR6HDuqeyphzcPwnWghQv-ZWMQcL9ViINJgK8_-5YrH9RmHwfNlm_ZidDp1LlEIxQY_TqkEYCi9Saw2_MG5-uCf1cjwWKs3W4=s680-w680-h510-rw';
+const ADVOCATE_IMAGE_URL = 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnqntMOHO1zorwV_3BCfwSMQNbjHl6z6jmiFyaQq9_y49l2B0rgJnBgMTwlpZr05T9heliOe56KhkP-l2VXBxZwsB2S5SYqJoMzXqydiDqOiOwvTnpRq34UVK-o-ZlE_6vtvWZm5unZNL13=s680-w680-h510-rw';
 
 export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
   const [portraitSrc, setPortraitSrc] = useState<string>(() => {
-    return localStorage.getItem('advocate_custom_photo') || ADVOCATE_IMAGE_URL;
+    const saved = localStorage.getItem('advocate_custom_photo');
+    if (saved && saved.startsWith('data:image/')) return saved;
+    return ADVOCATE_IMAGE_URL;
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -43,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
     }
   };
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-between pt-28 md:pt-36 pb-12 bg-[#070c1b] text-white overflow-hidden">
+    <section className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 bg-[#070c1b] text-white overflow-hidden">
       {/* Background Architectural Texture with Deep Navy Gradient */}
       <div className="absolute inset-0 z-0">
         <img
@@ -60,14 +62,14 @@ export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
       <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#c5a059]/15 to-transparent pointer-events-none" />
       <div className="absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c5a059]/15 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center my-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center my-4 lg:my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Heading, Slogan & Action CTAs */}
           <div className="lg:col-span-7 space-y-6">
             
             {/* Small Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#e2c882] text-xs font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#e2c882] text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-pulse" />
               <span>LEGAL COUNSEL • LITIGATION • JUSTICE</span>
             </div>
@@ -93,10 +95,10 @@ export const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 type="button"
                 onClick={onConsultClick}
                 id="hero-schedule-cta"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#e2c882] hover:from-[#e2c882] hover:to-[#ffe082] text-[#070c1b] font-sans font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-4 rounded-xl bg-gradient-to-r from-[#8a6514] via-[#a3791a] to-[#8a6514] hover:from-[#9c7319] hover:via-[#b58820] hover:to-[#9c7319] text-white font-sans font-extrabold text-sm sm:text-base tracking-wide uppercase shadow-[0_0_25px_rgba(212,175,55,0.45),0_4px_12px_rgba(0,0,0,0.5)] border-2 border-[#edd388] transition-all transform hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer whitespace-nowrap min-h-[48px] focus:outline-none focus:ring-4 focus:ring-[#d4af37]/50"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Schedule Consultation</span>
+                <Calendar className="w-5 h-5 text-white shrink-0 stroke-[2.5]" />
+                <span className="font-extrabold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Schedule Consultation</span>
               </button>
 
               <a

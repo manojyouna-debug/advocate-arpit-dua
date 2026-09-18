@@ -112,11 +112,11 @@ export const GoldSealLogo: React.FC<GoldSealLogoProps> = ({
       </svg>
 
       {showText && (
-        <div className="flex flex-col text-left">
-          <span className="font-serif text-xl font-bold tracking-tight text-white group-hover:text-[#d4af37] transition-colors leading-tight">
+        <div className="flex flex-col text-left min-w-0">
+          <span className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-[#d4af37] transition-colors leading-tight whitespace-nowrap truncate">
             Advocate Arpit Dua
           </span>
-          <span className="text-[11px] font-sans font-medium uppercase tracking-[0.18em] text-[#c5a059] leading-tight mt-0.5">
+          <span className="text-[9px] sm:text-[10px] md:text-[11px] font-sans font-medium uppercase tracking-[0.12em] sm:tracking-[0.18em] text-[#c5a059] leading-tight mt-0.5 whitespace-nowrap truncate">
             Punjab &amp; Haryana High Court
           </span>
         </div>

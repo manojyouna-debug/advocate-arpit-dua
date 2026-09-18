@@ -7,12 +7,14 @@ interface AboutSectionProps {
   onConsultClick: () => void;
 }
 
-const ADVOCATE_IMAGE_URL = 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm05KyDuFyT6l09QWaivlw8Ix3HK1K0KueJEYNMR6HDuqeyphzcPwnWghQv-ZWMQcL9ViINJgK8_-5YrH9RmHwfNlm_ZidDp1LlEIxQY_TqkEYCi9Saw2_MG5-uCf1cjwWKs3W4=s680-w680-h510-rw';
+const ADVOCATE_IMAGE_URL = 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnqntMOHO1zorwV_3BCfwSMQNbjHl6z6jmiFyaQq9_y49l2B0rgJnBgMTwlpZr05T9heliOe56KhkP-l2VXBxZwsB2S5SYqJoMzXqydiDqOiOwvTnpRq34UVK-o-ZlE_6vtvWZm5unZNL13=s680-w680-h510-rw';
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onConsultClick }) => {
   const { isMidnight } = useTheme();
   const [photoSrc, setPhotoSrc] = useState<string>(() => {
-    return localStorage.getItem('advocate_custom_photo') || ADVOCATE_IMAGE_URL;
+    const saved = localStorage.getItem('advocate_custom_photo');
+    if (saved && saved.startsWith('data:image/')) return saved;
+    return ADVOCATE_IMAGE_URL;
   });
 
   useEffect(() => {

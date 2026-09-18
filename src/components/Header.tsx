@@ -43,10 +43,6 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
               <span>Litigation Counsel • Punjab &amp; Haryana High Court &amp; District Courts</span>
             </span>
             <span className="text-slate-600">|</span>
-            <span className="text-white font-medium">
-              Office: <strong className="text-[#e2c882] font-semibold">Sector 43-B, Chandigarh</strong>
-            </span>
-            <span className="text-slate-600">|</span>
             <span className="text-amber-200 font-semibold tracking-wide">
               Service Areas: Chandigarh • Mohali • Panchkula • Yamunanagar
             </span>
@@ -77,18 +73,18 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             : 'bg-[#0b132b]/90 backdrop-blur-sm border-b border-slate-800/60 py-3.5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
           {/* Logo & Identity */}
           <a
             href="#"
-            className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-[#c5a059] rounded-lg p-1"
+            className="group flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-[#c5a059] rounded-lg p-1 min-w-0 shrink"
             aria-label="Advocate Arpit Dua Home"
           >
-            <GoldSealLogo size={46} showText={true} />
+            <GoldSealLogo size={42} showText={true} />
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -100,12 +96,9 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
             ))}
           </div>
 
-          {/* Header Action CTAs */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Desktop Theme Switcher */}
-            <div className="hidden sm:block">
-              <ThemeSwitcher variant="compact" />
-            </div>
+          {/* Desktop & Tablet Action CTAs */}
+          <div className="hidden sm:flex items-center gap-2 lg:gap-3 shrink-0">
+            <ThemeSwitcher variant="compact" />
 
             <a
               href={ADVOCATE_CONFIG.whatsappUrl}
@@ -128,24 +121,28 @@ export const Header: React.FC<HeaderProps> = ({ onConsultClick }) => {
           </div>
 
           {/* Mobile Action Controls */}
-          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
-            {/* Mobile Icon Theme Switcher */}
+          <div className="flex lg:hidden items-center gap-2 shrink-0">
+            {/* Mobile Theme Switcher */}
             <div className="sm:hidden">
               <ThemeSwitcher variant="icon-only" />
             </div>
 
+            {/* Mobile Call CTA */}
             <a
               href={ADVOCATE_CONFIG.telUrl}
-              className="p-2 rounded-lg bg-[#c5a059]/10 text-[#c5a059] border border-[#c5a059]/30"
+              className="p-2 rounded-lg bg-[#c5a059]/15 text-[#e2c882] border border-[#c5a059]/30 hover:bg-[#c5a059]/25 transition-colors"
               aria-label="Call Advocate Arpit Dua"
+              title="Call Office"
             >
               <Phone className="w-4 h-4" />
             </a>
 
+            {/* Clean Hamburger Menu Button for Mobile */}
             <button
               type="button"
+              id="mobile-hamburger-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-[#c5a059]"
+              className="p-2.5 rounded-lg bg-slate-800/80 border border-[#c5a059]/40 text-[#e2c882] hover:text-white hover:bg-[#c5a059]/20 active:scale-95 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#c5a059]"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >

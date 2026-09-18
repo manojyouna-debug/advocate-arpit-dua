@@ -50,3 +50,12 @@ html.dark, [data-theme="midnight"] {
 h1, h2, h3, .font-display {
   font-family: var(--font-serif);
 }
+
+/* Hide scrollbar for horizontal mobile navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
